@@ -18,10 +18,11 @@ public enum State
 
 public class Movement : MonoBehaviour {
 
-    List<Pos> positions;
-    Pos position = Pos.LOWERMIDDLE;
-    Pos[] possibleMoves = new Pos[2];
-    int positionIndex;
+    List<Pos> positions;  //List containing all positions
+    Pos position = Pos.LOWERMIDDLE; //Initial starting position
+    Pos[] possibleMoves = new Pos[2]; //Array containing the moves the player can make
+    int positionIndex; //The index of the current position in the 'positions' list
+    State state = State.MOVING;
 
 	// Use this for initialization
 	void Start ()
@@ -32,38 +33,71 @@ public class Movement : MonoBehaviour {
             positions.Add(pos);
             print(pos);
         }
-        positionIndex = positions.FindIndex(x => x == position);
-
         UpdateMoves();
     }
 	
 	// Update is called once per frame
 	void Update () {
         
+        switch (state)
+        {
+            case State.MOVING:
+                Update_Moving();
+                break;
+            case State.DEAD:
+                Update_Dead();
+                break;
+            default:
+                Debug.Log("Something went wrong");
+                break;
+        }
+	}
+
+#region Case updates
+    private void Update_Moving()
+    {
         if (Input.GetKeyDown(KeyCode.UpArrow))
         {
             position = possibleMoves[1];
-            positionIndex = positions.FindIndex(x => x == position);
-
             UpdateMoves();
         }
 
         if (Input.GetKeyDown(KeyCode.DownArrow))
         {
             position = possibleMoves[0];
-            positionIndex = positions.FindIndex(x => x == position);
-
             UpdateMoves();
         }
         print(position);
-	}
+    }
+
+    private void Update_Dead()
+    {
+
+    }
+
+    #endregion
+
+#region Case enters
+    private void Enter_Moving()
+    {
+
+    }
+
+    private void Enter_Dead()
+    {
+
+    }
+#endregion
 
     void UpdateMoves()
     {
+        positionIndex = positions.FindIndex(x => x == position);
         possibleMoves[0] = (positionIndex == positions.Count - 1) ? positions[positionIndex] : positions[positionIndex + 1];
         possibleMoves[1] = (positionIndex == 0) ? positions[positionIndex] : positions[positionIndex - 1];
+    }
 
-        //print("PossibleMoves[0]: " + possibleMoves[0]);
-        //print("PossibleMoves[1]: " + possibleMoves[1]);
+    private void ChangePosition()
+    {
+
     }
 }
