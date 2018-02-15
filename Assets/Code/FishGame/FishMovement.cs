@@ -12,6 +12,7 @@ public class FishMovement : MonoBehaviour {
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
+        //Application.targetFrameRate = 2;
     }
 
     private void FixedUpdate()
@@ -22,7 +23,6 @@ public class FishMovement : MonoBehaviour {
         Vector2 movementVector = new Vector2(rightLeft, upDown);
         movementVector.Normalize();
 
-        //rb2d.MovePosition(rb2d.position + (movementVector * moveSpeed));
         rb2d.AddForce(movementVector * moveSpeed * Time.deltaTime);
     }
 

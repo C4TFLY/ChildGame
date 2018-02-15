@@ -2,8 +2,14 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+[RequireComponent(typeof(Rigidbody2D))]
 public class EnemyFish : MonoBehaviour {
 
-    public List<Fish> fishes;
-	
+    public Fish properties;
+
+    private void Start()
+    {
+        GetComponent<SpriteRenderer>().sprite = properties.image;
+    }
+
 }
