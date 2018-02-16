@@ -167,48 +167,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1, y: 22}
   m_EdgeRadius: 0
---- !u!1001 &395438395
-Prefab:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4144030859675040, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-      propertyPath: m_RootOrder
-      value: 4
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-  m_IsPrefabParent: 0
 --- !u!1 &441121308
 GameObject:
   m_ObjectHideFlags: 0
@@ -368,24 +326,10 @@ MonoBehaviour:
     size: 5
     moveSpeed: 2
     value: 78
-  - image: {fileID: 0}
-    size: 0
-    moveSpeed: 0
-    value: 0
-  - image: {fileID: 0}
-    size: 0
-    moveSpeed: 0
-    value: 0
-  - image: {fileID: 0}
-    size: 0
-    moveSpeed: 0
-    value: 0
-  - image: {fileID: 0}
-    size: 0
-    moveSpeed: 0
-    value: 0
+    colliderSize: {x: 1.4, y: 0.99}
   fishPrefab: {fileID: 1739733713905890, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
   spawnChance: 500
+  spawnDelay: 0.25
 --- !u!4 &919753473
 Transform:
   m_ObjectHideFlags: 0
@@ -464,6 +408,7 @@ GameObject:
   - component: {fileID: 1319274825}
   - component: {fileID: 1319274828}
   - component: {fileID: 1319274827}
+  - component: {fileID: 1319274829}
   m_Layer: 0
   m_Name: Fish
   m_TagString: Untagged
@@ -542,6 +487,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 500
+--- !u!114 &1319274829
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1319274824}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3c1f6f7880af31a4e8583db8a215f637, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1380685544
 GameObject:
   m_ObjectHideFlags: 0

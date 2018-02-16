@@ -9,5 +9,5 @@ public class Fish {
     public int size;
     public float moveSpeed;
     public int value;
-	
+    public Vector2 colliderSize;
 }
