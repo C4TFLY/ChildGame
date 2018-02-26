@@ -15,7 +15,7 @@ public class FishSpawner : MonoBehaviour {
     private void FixedUpdate()
     {
         Debug.Log(canSpawn);
-        if (canSpawn && RandomizerFloat(1, 500) < 5)
+        if (canSpawn && RandomizerFloat(1, spawnChance) < 5)
         {
             StartCoroutine(SpawnDelay());
             GameObject spawnedFish = Instantiate(fishPrefab, transform, true);

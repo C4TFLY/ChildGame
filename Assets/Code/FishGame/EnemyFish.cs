@@ -10,7 +10,8 @@ public class EnemyFish : MonoBehaviour {
     private void Start()
     {
         GetComponent<SpriteRenderer>().sprite = properties.image;
-        GetComponent<BoxCollider2D>().size = properties.colliderSize;
+        //GetComponent<BoxCollider2D>().size = properties.colliderSize;
+        gameObject.AddComponent<BoxCollider2D>();
     }
 
 }
