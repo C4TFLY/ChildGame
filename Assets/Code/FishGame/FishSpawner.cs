@@ -9,16 +9,22 @@ public class FishSpawner : MonoBehaviour {
 
     [Header("Spawning")] public float spawnChance = 500;
     [Range(0, 5)] public float spawnDelay = 0.25f;
+    [Range(0, 10)] public float maxTime = 5;
+    [Range(1, 20)] public int destroyDelay = 5;
 
     private bool canSpawn = true;
+    private float lastSpawnTime = 0;
 
     private void FixedUpdate()
     {
-        Debug.Log(canSpawn);
-        if (canSpawn && RandomizerFloat(1, spawnChance) < 5)
+        if ((Time.time > lastSpawnTime + maxTime) || (canSpawn && RandomizerFloat(1, spawnChance) < 5))
         {
+            lastSpawnTime = Time.time;
             StartCoroutine(SpawnDelay());
-            GameObject spawnedFish = Instantiate(fishPrefab, transform, true);
+            Vector3 spawnPos = new Vector3(transform.position.x,
+                                            transform.position.y + (RandomizerFloat(0, 9) * RandomInvert()),
+                                            transform.position.z);
+            GameObject spawnedFish = Instantiate(fishPrefab, spawnPos, transform.rotation, transform);
             //spawnedFish.GetComponent<EnemyFish>().properties = fishes[RandomizerInt(0, fishes.Length)];
             spawnedFish.GetComponent<EnemyFish>().properties = fishes[0];
             spawnedFish.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 500);
@@ -33,6 +39,12 @@ public class FishSpawner : MonoBehaviour {
     int RandomizerInt(int min = 1, int max = 1000)
     {
         return Random.Range(min, max);
+    }
+
+    int RandomInvert()
+    {
+        int inverter = Random.Range(0f, 1f) < 0.5 ? 1 : -1;
+        return inverter;
     }
 
     private IEnumerator SpawnDelay()

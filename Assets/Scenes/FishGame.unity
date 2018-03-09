@@ -326,10 +326,11 @@ MonoBehaviour:
     size: 5
     moveSpeed: 2
     value: 78
-    colliderSize: {x: 1.4, y: 0.99}
   fishPrefab: {fileID: 1739733713905890, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-  spawnChance: 500
+  spawnChance: 250
   spawnDelay: 0.25
+  maxTime: 5
+  destroyDelay: 5
 --- !u!4 &919753473
 Transform:
   m_ObjectHideFlags: 0
@@ -474,7 +475,7 @@ Rigidbody2D:
   m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
-  m_Constraints: 0
+  m_Constraints: 4
 --- !u!114 &1319274828
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -498,6 +499,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c1f6f7880af31a4e8583db8a215f637, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerScore: 0
 --- !u!1 &1380685544
 GameObject:
   m_ObjectHideFlags: 0

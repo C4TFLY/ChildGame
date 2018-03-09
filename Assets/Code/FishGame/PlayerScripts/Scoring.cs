@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Scoring : MonoBehaviour {
 
-    private int playerScore = 0;
+    [SerializeField] private int playerScore = 0;
     public int PlayerScore { get { return playerScore; } }
 
     private void OnTriggerEnter2D(Collider2D collision)

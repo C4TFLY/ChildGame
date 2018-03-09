@@ -12,7 +12,7 @@ public class PlayerMovement : MonoBehaviour {
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //Application.targetFrameRate = 2;
+        //Application.targetFrameRate = 10;
     }
 
     private void FixedUpdate()
