@@ -12,10 +12,10 @@ public class PlayerMovement : MonoBehaviour {
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //Application.targetFrameRate = 10;
+        //Application.targetFrameRate = 2;
     }
 
-    private void FixedUpdate()
+    public void MovePlayer()
     {
         float upDown = Input.GetAxisRaw("Vertical");
         float rightLeft = Input.GetAxisRaw("Horizontal");

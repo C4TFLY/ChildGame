@@ -4,16 +4,19 @@ using UnityEngine;
 
 public class Scoring : MonoBehaviour {
 
-    [SerializeField] private int playerScore = 0;
-    public int PlayerScore { get { return playerScore; } }
+    private static int playerScore = 0;
+    public static int PlayerScore { get { return playerScore; } }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    public void Score(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("EnemyFish"))
+        if (collision.gameObject.CompareTag("EnemyFish") && Player.state == PlayerState.ALIVE)
         {
+
             GameObject enemy = collision.gameObject;
             Destroy(enemy);
             playerScore += enemy.GetComponent<EnemyFish>().properties.value;
+            UIManager.UpdateText();
         }
     }
+
 }
