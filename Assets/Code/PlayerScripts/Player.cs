@@ -49,18 +49,16 @@ public class Player : MonoBehaviour {
 
     }
 
-    public void Alive_Enter()
+    public static void Alive_Enter()
     {
         state = PlayerState.ALIVE;
     }
 
-    public void Dead_Enter()
+    public static void Dead_Enter()
     {
         state = PlayerState.DEAD;
     }
-
-
-
+    
     private void OnTriggerEnter2D(Collider2D collision)
     {
         scoring.Score(collision);

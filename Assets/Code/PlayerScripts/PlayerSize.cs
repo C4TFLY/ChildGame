@@ -2,26 +2,42 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Player))]
-[RequireComponent(typeof(Scoring))]
 public class PlayerSize : MonoBehaviour {
 
-    public int size = 1;
+    public static int size = 1;
     public int[] sizeThresholds;
-    
-    private Scoring scoring;
+
+    public static int Size { get { return size; } }
+
+    private float scaleIncrease;
 
     private void Start()
     {
-        scoring = GetComponent<Scoring>();
+        scaleIncrease = 2f / sizeThresholds.Length;
     }
 
-    public void SizeCheck()
+    public void SizeIncrease()
     {
-        if ((size - 1 <= sizeThresholds.Length) && Scoring.PlayerScore > sizeThresholds[size - 1])
+        if (size <= sizeThresholds.Length)
         {
-            size++;
+            if (Scoring.PlayerScore > sizeThresholds[size - 1])
+            {
+                size++;
+                transform.localScale = new Vector3(transform.localScale.x + scaleIncrease,
+                                                    transform.localScale.y + scaleIncrease,
+                                                    transform.localScale.z);
+            }
         }
+    }
+
+    /// <summary>
+    /// Returns true if the player is larger than the enemy
+    /// </summary>
+    /// <param name="enemySize">The enemy's size</param>
+    /// <returns></returns>
+    public bool CheckSize(int enemySize)
+    {
+        return size > enemySize;
     }
 
 }

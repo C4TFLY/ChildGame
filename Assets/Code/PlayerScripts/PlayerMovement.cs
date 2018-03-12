@@ -12,7 +12,6 @@ public class PlayerMovement : MonoBehaviour {
     private void Start()
     {
         rb2d = GetComponent<Rigidbody2D>();
-        //Application.targetFrameRate = 2;
     }
 
     public void MovePlayer()
