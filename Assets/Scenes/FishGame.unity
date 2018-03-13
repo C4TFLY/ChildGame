@@ -689,6 +689,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: db1b0f39761a5f946bc981307125f02e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  smoothTime: 0.05
   sizeThresholds: 64000000c80000002c01000090010000f4010000
 --- !u!114 &1319274831
 MonoBehaviour:
