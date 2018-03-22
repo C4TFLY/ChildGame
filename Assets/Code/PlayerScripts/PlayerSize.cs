@@ -6,6 +6,7 @@ public class PlayerSize : MonoBehaviour {
 
     public static int size = 1;
     public float smoothTime = 0.3f;
+    public float winScore;
     public int[] sizeThresholds;
 
     public static int Size { get { return size; } }
@@ -14,25 +15,24 @@ public class PlayerSize : MonoBehaviour {
     private bool changeScale = false;
     private float scaleYChange = 0.0f;
     private float scaleXChange = 0.0f;
+    private Vector3 newScale, originalScale;
 
     private void Start()
     {
         scaleIncrease = 2f / sizeThresholds.Length;
+        originalScale = newScale = new Vector3(transform.localScale.x,
+                                transform.localScale.y,
+                                transform.localScale.z);
     }
 
     private void Update()
     {
-        if (changeScale)
-        {
-            Vector3 newScale = new Vector3(transform.localScale.x + scaleIncrease,
-                                            transform.localScale.y + scaleIncrease,
+        print(size);
+        float newScaleY = Mathf.SmoothDamp(transform.localScale.y, newScale.y, ref scaleYChange, smoothTime);
+        float newScaleX = Mathf.SmoothDamp(transform.localScale.x, newScale.x, ref scaleXChange, smoothTime);
+        transform.localScale = new Vector3(newScaleX,
+                                            newScaleY,
                                             transform.localScale.z);
-            float newScaleY = Mathf.SmoothDamp(transform.localScale.y, newScale.y, ref scaleYChange, smoothTime);
-            float newScaleX = Mathf.SmoothDamp(transform.localScale.x, newScale.x, ref scaleXChange, smoothTime);
-            transform.localScale = new Vector3(newScaleX,
-                                                newScaleY,
-                                                transform.localScale.z);
-        }
     }
 
     public void SizeIncrease()
@@ -43,6 +43,9 @@ public class PlayerSize : MonoBehaviour {
             {
                 changeScale = true;
                 size++;
+                newScale = new Vector3(originalScale.x + (scaleIncrease * (size - 1)),
+                                        originalScale.y + (scaleIncrease * (size - 1)),
+                                        originalScale.z);
             }
         }
     }

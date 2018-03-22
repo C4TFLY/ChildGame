@@ -25,9 +25,9 @@ public class FishSpawner : MonoBehaviour {
                                             transform.position.y + (RandomizerFloat(0, 9) * RandomInvert()),
                                             transform.position.z);
             GameObject spawnedFish = Instantiate(fishPrefab, spawnPos, transform.rotation, transform);
-            //spawnedFish.GetComponent<EnemyFish>().properties = fishes[RandomizerInt(0, fishes.Length)];
-            spawnedFish.GetComponent<EnemyFish>().properties = fishes[0];
-            spawnedFish.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * 500);
+            Fish selectedFish = fishes[RandomizerInt(0, fishes.Length)];
+            spawnedFish.GetComponent<EnemyFish>().properties = selectedFish;
+            spawnedFish.GetComponent<Rigidbody2D>().AddForce(-Vector2.right * selectedFish.moveSpeed * 10);
         }
     }
 

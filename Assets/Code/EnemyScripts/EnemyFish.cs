@@ -12,7 +12,14 @@ public class EnemyFish : MonoBehaviour {
         GetComponent<SpriteRenderer>().sprite = properties.image;
         //GetComponent<BoxCollider2D>().size = properties.colliderSize;
         gameObject.AddComponent<BoxCollider2D>().isTrigger = true;
-        Destroy(gameObject, transform.parent.GetComponent<FishSpawner>().destroyDelay);
+    }
+
+    private void OnTriggerEnter2D(Collider2D collision)
+    {
+        if (collision.CompareTag("Trashcan"))
+        {
+            Destroy(gameObject);
+        }
     }
 
 }
