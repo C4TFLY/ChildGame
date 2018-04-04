@@ -11,10 +11,21 @@ public class Scoring : MonoBehaviour {
     public static int PlayerScore { get { return playerScore; } }
 
     private PlayerSize playerSize;
+    private Player player;
 
     private void Start()
     {
         playerSize = GetComponent<PlayerSize>();
+        player = GetComponent<Player>();
+    }
+
+    private void Update()
+    {
+        if (PlayerScore > playerSize.sizeThresholds[playerSize.sizeThresholds.Length - 1])
+        {
+            player.Won_Enter();
+            gameOverText.GetComponent<Text>().text = "You win!";
+        }
     }
 
     public void Score(Collider2D collision)
@@ -32,7 +43,7 @@ public class Scoring : MonoBehaviour {
             }
             else
             {
-                Player.Dead_Enter();
+                player.Dead_Enter();
                 gameOverText.SetActive(true);
                 int difference = enemySize - PlayerSize.Size;
                 string x = difference > 1 ? "sizes" : "size";

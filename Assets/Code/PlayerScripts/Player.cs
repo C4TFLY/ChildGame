@@ -5,7 +5,8 @@ using UnityEngine;
 public enum PlayerState
 {
     ALIVE,
-    DEAD
+    DEAD,
+    WON
 }
 
 [RequireComponent(typeof(PlayerMovement))]
@@ -14,6 +15,7 @@ public enum PlayerState
 public class Player : MonoBehaviour {
 
     public static PlayerState state = PlayerState.ALIVE;
+    public SpriteRenderer playerSprite;
 
     private PlayerMovement playerMovement;
     private Scoring scoring;
@@ -33,6 +35,9 @@ public class Player : MonoBehaviour {
             case PlayerState.DEAD:
                 Dead_Update();
                 break;
+            case PlayerState.WON:
+                Won_Update();
+                break;
             default:
                 Debug.LogError("Something went wrong regarding Player states.");
                 break;
@@ -49,14 +54,25 @@ public class Player : MonoBehaviour {
 
     }
 
-    public static void Alive_Enter()
+    private void Won_Update()
+    {
+
+    }
+
+    public void Alive_Enter()
     {
         state = PlayerState.ALIVE;
     }
 
-    public static void Dead_Enter()
+    public void Dead_Enter()
     {
         state = PlayerState.DEAD;
+        playerSprite.sprite = null;
+    }
+
+    public void Won_Enter()
+    {
+        state = PlayerState.WON;
     }
     
     private void OnTriggerEnter2D(Collider2D collision)

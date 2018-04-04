@@ -14,6 +14,17 @@ public class FishSpawner : MonoBehaviour {
 
     private bool canSpawn = true;
     private float lastSpawnTime = 0;
+    private Camera cam;
+
+    private void Start()
+    {
+        cam = Camera.main;
+        float camHeight = cam.orthographicSize * 2;
+        float camWidth = cam.aspect * camHeight;
+        transform.position = new Vector3((camWidth / 2) + 10 ,
+                                        transform.position.y,
+                                        transform.position.z);
+    }
 
     private void FixedUpdate()
     {
@@ -22,7 +33,7 @@ public class FishSpawner : MonoBehaviour {
             lastSpawnTime = Time.time;
             StartCoroutine(SpawnDelay());
             Vector3 spawnPos = new Vector3(transform.position.x,
-                                            transform.position.y + (RandomizerFloat(0, 9) * RandomInvert()),
+                                            transform.position.y + (RandomizerFloat(0, cam.orthographicSize - 1) * RandomInvert()),
                                             transform.position.z);
             GameObject spawnedFish = Instantiate(fishPrefab, spawnPos, transform.rotation, transform);
             Fish selectedFish = fishes[RandomizerInt(0, fishes.Length)];

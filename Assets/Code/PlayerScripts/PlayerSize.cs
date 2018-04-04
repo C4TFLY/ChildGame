@@ -27,7 +27,6 @@ public class PlayerSize : MonoBehaviour {
 
     private void Update()
     {
-        print(size);
         float newScaleY = Mathf.SmoothDamp(transform.localScale.y, newScale.y, ref scaleYChange, smoothTime);
         float newScaleX = Mathf.SmoothDamp(transform.localScale.x, newScale.x, ref scaleXChange, smoothTime);
         transform.localScale = new Vector3(newScaleX,
