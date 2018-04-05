@@ -4,22 +4,22 @@ using UnityEngine;
 
 public class PlayerSize : MonoBehaviour {
 
-    public static int size = 1;
     public float smoothTime = 0.3f;
     public float winScore;
     public int[] sizeThresholds;
+    public float maxSizeScale = 3f;
 
-    public static int Size { get { return size; } }
+    public int Size { get { return playerSize; } }
 
+    [SerializeField] private int playerSize = 1;
     private float scaleIncrease;
-    private bool changeScale = false;
     private float scaleYChange = 0.0f;
     private float scaleXChange = 0.0f;
-    private Vector3 newScale, originalScale;
+    private Vector3 newScale, originalScale, wantedScale;
 
     private void Start()
     {
-        scaleIncrease = 2f / sizeThresholds.Length;
+        scaleIncrease = (maxSizeScale - transform.localScale.x) / sizeThresholds.Length;
         originalScale = newScale = new Vector3(transform.localScale.x,
                                 transform.localScale.y,
                                 transform.localScale.z);
@@ -34,20 +34,23 @@ public class PlayerSize : MonoBehaviour {
                                             transform.localScale.z);
     }
 
-    public void SizeIncrease()
+    public void SizeIncrease(int amount)
     {
-        if (size <= sizeThresholds.Length)
-        {
-            if (Scoring.PlayerScore > sizeThresholds[size - 1])
-            {
-                changeScale = true;
-                size++;
-                newScale = new Vector3(originalScale.x + (scaleIncrease * (size - 1)),
-                                        originalScale.y + (scaleIncrease * (size - 1)),
-                                        originalScale.z);
-            }
-        }
+            playerSize += amount;
+            newScale = new Vector3(originalScale.x + (scaleIncrease * (playerSize - 1)),
+                                    originalScale.y + (scaleIncrease * (playerSize - 1)),
+                                    originalScale.z);
     }
+
+#if UNITY_EDITOR
+    public void SetSize(int size)
+    {
+        playerSize = size;
+        newScale = new Vector3(originalScale.x + (scaleIncrease * size),
+                                originalScale.y + (scaleIncrease * size),
+                                originalScale.z);
+    }
+#endif
 
     /// <summary>
     /// Returns true if the player is larger than the enemy
@@ -56,7 +59,7 @@ public class PlayerSize : MonoBehaviour {
     /// <returns></returns>
     public bool CheckSize(int enemySize)
     {
-        return size > enemySize;
+        return playerSize > enemySize;
     }
 
 }

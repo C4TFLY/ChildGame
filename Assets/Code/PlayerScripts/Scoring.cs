@@ -39,17 +39,30 @@ public class Scoring : MonoBehaviour {
                 Destroy(enemy);
                 playerScore += enemy.GetComponent<EnemyFish>().properties.value;
                 UIManager.UpdateText();
-                playerSize.SizeIncrease();
+                if (playerSize.Size <= playerSize.sizeThresholds.Length)
+                {
+                    if (playerScore > playerSize.sizeThresholds[playerSize.Size - 1])
+                    {
+                        playerSize.SizeIncrease(1);
+                    }
+                }
             }
             else
             {
                 player.Dead_Enter();
                 gameOverText.SetActive(true);
-                int difference = enemySize - PlayerSize.Size;
+                int difference = enemySize - playerSize.Size;
                 string x = difference > 1 ? "sizes" : "size";
                 gameOverText.GetComponent<Text>().text = $"You lost... You tried to eat a fish that was {difference} {x} bigger than you.";
             }
         }
     }
+
+#if UNITY_EDITOR
+    public void AddScore(int amount)
+    {
+        playerScore += amount;
+    }
+#endif
 
 }
