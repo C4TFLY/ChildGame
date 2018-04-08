@@ -8,6 +8,8 @@ public class LocalizationManager : MonoBehaviour {
     public static LocalizationManager instance;
 
     private Dictionary<string, string> localizedText;
+    private bool isReady = false;
+    private string missingTextString = "Localized text not found.";
 	
 	void Awake ()
     {
@@ -43,5 +45,24 @@ public class LocalizationManager : MonoBehaviour {
         {
             Debug.LogError("Cannot find localization file!");
         }
+
+        isReady = true;
+
+    }
+
+    public string GetLocalizedValue(string key)
+    {
+        string result = missingTextString;
+
+        if (localizedText.ContainsKey(key))
+        {
+            result = localizedText[key];
+        }
+        return result;
+    }
+
+    public bool IsReady()
+    {
+        return isReady;
     }
 }
