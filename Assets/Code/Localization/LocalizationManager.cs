@@ -2,10 +2,17 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
+using TMPro;
 
 public class LocalizationManager : MonoBehaviour {
 
     public static LocalizationManager instance;
+    public LanguageMenuManager lmm;
+
+    [Header("Error handling")]
+    public TextMeshProUGUI errorText;
+    [TextArea] public string localeNotFoundError;
+    [TextArea] public string otherError;
 
     private Dictionary<string, string> localizedText;
     private bool isReady = false;
@@ -13,6 +20,7 @@ public class LocalizationManager : MonoBehaviour {
 	
 	void Awake ()
     {
+        errorText.text = "";
 		if (instance == null)
         {
             instance = this;
@@ -25,9 +33,10 @@ public class LocalizationManager : MonoBehaviour {
         DontDestroyOnLoad(gameObject);
 	}
 	
-    public void LoadLocalizedText(string fileName)
+    public void LoadLocalizedText()
     {
         localizedText = new Dictionary<string, string>();
+        string fileName = lmm.languages[lmm.selectedLanguageIndex].localeFile;
         string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
         if (File.Exists(filePath))
         {
@@ -40,13 +49,14 @@ public class LocalizationManager : MonoBehaviour {
             }
 
             Debug.Log("Data loaded. Dictionary contains: " + localizedText.Count + " entries.");
+            isReady = true;
         }
         else
         {
-            Debug.LogError("Cannot find localization file!");
+            Debug.LogError($"Cannot find localization file '{fileName}' at '{filePath}'.");
+            errorText.text = localeNotFoundError + lmm.selectedLanguageIndex;
         }
 
-        isReady = true;
 
     }
 
