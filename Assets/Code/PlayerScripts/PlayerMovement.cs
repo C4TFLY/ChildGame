@@ -25,4 +25,9 @@ public class PlayerMovement : MonoBehaviour {
         rb2d.AddForce(movementVector * moveSpeed * Time.deltaTime);
     }
 
+    public void FloatUp()
+    {
+        rb2d.AddForce(new Vector3(0, 1, 0) * moveSpeed * Time.deltaTime);
+    }
+
 }

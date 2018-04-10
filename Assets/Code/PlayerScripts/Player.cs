@@ -51,7 +51,7 @@ public class Player : MonoBehaviour {
 
     private void Dead_Update()
     {
-
+        playerMovement.FloatUp();
     }
 
     private void Won_Update()
@@ -67,7 +67,8 @@ public class Player : MonoBehaviour {
     public void Dead_Enter()
     {
         state = PlayerState.DEAD;
-        playerSprite.sprite = null;
+        playerSprite.flipY = true;
+        GetComponent<BoxCollider2D>().enabled = false;
     }
 
     public void Won_Enter()
