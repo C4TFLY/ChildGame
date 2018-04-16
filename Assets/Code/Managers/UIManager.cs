@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 #if UNITY_EDITOR
 using System;
@@ -10,8 +11,8 @@ using System.Text.RegularExpressions;
 
 public class UIManager : MonoBehaviour {
 
-    public Text scoreText;
-    private static Text sText;
+    public TextMeshProUGUI scoreText;
+    private static TextMeshProUGUI sText;
 
     private void Awake()
     {

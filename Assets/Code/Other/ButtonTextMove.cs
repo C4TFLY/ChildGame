@@ -7,16 +7,27 @@ using TMPro;
 public class ButtonTextMove : MonoBehaviour {
 
     private RectTransform textTransform;
-    private SpriteState sprState = new SpriteState();
 
     private void Start()
     {
         textTransform = transform.GetChild(0).GetComponent<RectTransform>();
     }
 
-    public void MoveText()
+    public void PressText()
     {
-        textTransform.asdasdasd
+        textTransform.anchoredPosition = new Vector2(0, 0);
     }
 
+    public void UnPressText()
+    {
+        textTransform.anchoredPosition = new Vector2(0, 5);
+    }
+
+    public void SecondaryPressText()
+    {
+        if (Input.GetKey(KeyCode.Mouse0))
+        {
+            //textTransform.anchoredPosition = new Vector2(0,0);
+        }
+    }
 }
