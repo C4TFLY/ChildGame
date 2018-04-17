@@ -6,9 +6,12 @@ using UnityEngine.UI;
 public class Scoring : MonoBehaviour {
 
     public GameObject gameOverText;
+    public int score;
 
     private static int playerScore = 0;
+    private static int fishEaten = 0;
     public static int PlayerScore { get { return playerScore; } }
+    public static int FishEaten { get { return fishEaten; } }
 
     private PlayerSize playerSize;
     private Player player;
@@ -21,6 +24,7 @@ public class Scoring : MonoBehaviour {
 
     private void Update()
     {
+        score = PlayerScore;
         if (PlayerScore > playerSize.sizeThresholds[playerSize.sizeThresholds.Length - 1])
         {
             player.Won_Enter();
@@ -36,8 +40,11 @@ public class Scoring : MonoBehaviour {
             int enemySize = enemy.GetComponent<EnemyFish>().properties.size;
             if (playerSize.CheckSize(enemySize))
             {
+                int enemyVal = enemy.GetComponent<EnemyFish>().properties.value;
                 Destroy(enemy);
-                playerScore += enemy.GetComponent<EnemyFish>().properties.value;
+                playerScore += enemyVal;
+                fishEaten += 1;
+                ProgressBar.UpdateFiller(enemyVal);
                 UIManager.UpdateText();
                 if (playerSize.Size <= playerSize.sizeThresholds.Length)
                 {

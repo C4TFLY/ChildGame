@@ -11,18 +11,18 @@ using System.Text.RegularExpressions;
 
 public class UIManager : MonoBehaviour {
 
-    public TextMeshProUGUI scoreText;
-    private static TextMeshProUGUI sText;
+    public TextMeshProUGUI fishEatenText;
+    private static TextMeshProUGUI eText;
 
     private void Awake()
     {
-        sText = scoreText;
-        scoreText.text = "Score: 0";
+        eText = fishEatenText;
+        fishEatenText.text = "0";
     }
 
     public static void UpdateText()
     {
-        sText.text = $"Score: {Scoring.PlayerScore}";
+        eText.text = Scoring.FishEaten.ToString();
     }
 
 #if UNITY_EDITOR
