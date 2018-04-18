@@ -25,7 +25,7 @@ public class Scoring : MonoBehaviour {
     private void Update()
     {
         score = PlayerScore;
-        if (PlayerScore > playerSize.sizeThresholds[playerSize.sizeThresholds.Length - 1])
+        if (PlayerScore >= playerSize.winScore)
         {
             player.Won_Enter();
             gameOverText.GetComponent<Text>().text = "You win!";
