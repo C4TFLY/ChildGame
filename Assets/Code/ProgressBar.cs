@@ -14,7 +14,7 @@ public class ProgressBar : MonoBehaviour {
 
     private void Start()
     {
-        sizeSpacing = maxWidth / sizeComponent.sizeThresholds.Length;
+        sizeSpacing = maxWidth / sizeComponent.sizeThresholds.Length + 1;
         sizeIncrease = sizeSpacing / (sizeComponent.sizeThresholds[sizeComponent.Size] - sizeComponent.sizeThresholds[sizeComponent.Size - 1]);
         fillerImg = GetComponent<RectTransform>();
     }
