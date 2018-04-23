@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
+using TMPro;
 
 public class LocalizedText : MonoBehaviour {
 
@@ -9,7 +9,7 @@ public class LocalizedText : MonoBehaviour {
 
 	void Start ()
     {
-        Text text = GetComponent<Text>();
+        TextMeshProUGUI text = GetComponent<TextMeshProUGUI>();
         text.text = LocalizationManager.instance.GetLocalizedValue(key);
 	}
 }

@@ -26,16 +26,20 @@ public class LocalizedTextEditor : EditorWindow {
 
             if(GUILayout.Button("Save data"))
             {
-                SaveGameData();
+                SaveLocaleData();
             }
         }
         if(GUILayout.Button("Load data"))
         {
-            LoadGameData();
+            LoadLocaleData();
         }
         if(GUILayout.Button("Create new data"))
         {
             CreateNewData();
+        }
+        if(GUILayout.Button("Load comparison data"))
+        {
+            CompareData();
         }
     }
 
@@ -44,7 +48,7 @@ public class LocalizedTextEditor : EditorWindow {
         localizationData = new LocalizationData();
     }
 
-    private void SaveGameData()
+    private void SaveLocaleData()
     {
         string filePath = EditorUtility.SaveFilePanel("Save localization data file", Application.streamingAssetsPath, "", "json");
 
@@ -55,7 +59,7 @@ public class LocalizedTextEditor : EditorWindow {
         }
     }
 
-    private void LoadGameData()
+    private void LoadLocaleData()
     {
         string filePath = EditorUtility.OpenFilePanel("Select localization data file", Application.streamingAssetsPath, "json");
 
@@ -63,6 +67,32 @@ public class LocalizedTextEditor : EditorWindow {
         {
             string dataAsJson = File.ReadAllText(filePath);
 
+            localizationData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
+        }
+    }
+
+    private void CompareData()
+    {
+        GetWindow(typeof(DataComparison)).Show();
+    }
+}
+
+public class DataComparison : EditorWindow
+{
+    private static LocalizationData localizationData;
+
+    private void OnGUI()
+    {
+        if (localizationData != null)
+        {
+            SerializedObject serializedObject = new SerializedObject(this);
+            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");
+            EditorGUILayout.PropertyField(serializedProperty, true);
+        }
+        if (GUILayout.Button("Load data"))
+        {
+            string filePath = EditorUtility.OpenFilePanel("Select localization data file", Application.streamingAssetsPath, "json");
+            string dataAsJson = File.ReadAllText(filePath);
             localizationData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
         }
     }
