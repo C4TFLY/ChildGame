@@ -30,13 +30,18 @@ public class UIManager : MonoBehaviour {
     private string scoreInput = "100";
     public PlayerSize playerSize;
     public Scoring scoring;
+    public ProgressBar progressBar;
+
     void OnGUI()
     {
         GUI.Label(new Rect(10, 40, 50, 20), "Size: ");
         GUI.Label(new Rect(10, 70, 50, 20), "Score: ");
         sizeInput = GUI.TextField(new Rect(50, 40, 50, 20), sizeInput, 25);
         scoreInput = GUI.TextField(new Rect(50, 70, 50, 20), scoreInput, 25);
+
         sizeInput = Regex.Replace(sizeInput, @"[^0-9.]", "");
+        scoreInput = Regex.Replace(scoreInput, @"[^0-9.]", "");
+
         if (GUI.Button(new Rect(10, 100, 50, 20), "Apply"))
         {
             playerSize.SetSize(Int32.Parse(sizeInput));

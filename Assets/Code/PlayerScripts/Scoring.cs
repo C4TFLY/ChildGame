@@ -69,6 +69,7 @@ public class Scoring : MonoBehaviour {
     public void AddScore(int amount)
     {
         playerScore += amount;
+        ProgressBar.UpdateFiller(amount);
     }
 #endif
 

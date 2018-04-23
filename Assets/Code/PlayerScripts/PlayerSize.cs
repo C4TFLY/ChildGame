@@ -5,7 +5,7 @@ using UnityEngine;
 public class PlayerSize : MonoBehaviour {
 
     public float smoothTime = 0.3f;
-    public float winScore;
+    public int winScore;
     public int[] sizeThresholds;
     public float maxSizeScale = 3f;
 
