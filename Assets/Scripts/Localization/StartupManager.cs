@@ -12,7 +12,7 @@ public class StartupManager : MonoBehaviour {
             yield return null;
         }
 
-        SceneManager.LoadScene("Main");
+        SceneManager.LoadScene("MainMenu");
 	}
 
 }

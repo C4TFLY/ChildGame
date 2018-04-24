@@ -13,6 +13,7 @@ public class LocalizedTextEditor : EditorWindow {
     private float currentScrollViewWidth, currentScrollViewHeight;
     private Rect cursorChangeRect;
     private bool resize = false;
+    private bool loadedData1, loadedData2 = false;
 
     [MenuItem("Window/Localized Text Editor")]
     private static void Init()
@@ -30,6 +31,7 @@ public class LocalizedTextEditor : EditorWindow {
 
     private void OnGUI()
     {
+        cursorChangeRect.Set(currentScrollViewWidth, cursorChangeRect.y, cursorChangeRect.width, position.height);
         GUILayout.BeginHorizontal();
 
 #region Left side
@@ -38,10 +40,10 @@ public class LocalizedTextEditor : EditorWindow {
 
         
 
-        if (localizationData != null)
-        {asdasdasd
-            SerializedObject serializedObject = new SerializedObject(this);                                 //Something is up with
-            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");      //these two fuckers
+        if (localizationData != null && loadedData1)
+        {
+            SerializedObject serializedObject = new SerializedObject(this);
+            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");
             if (serializedProperty != null)
                 EditorGUILayout.PropertyField(serializedProperty, true);
 
@@ -70,7 +72,7 @@ public class LocalizedTextEditor : EditorWindow {
 
         scrollPos2 = GUILayout.BeginScrollView(scrollPos2, GUILayout.Height(position.height), GUILayout.Width(position.width - currentScrollViewWidth));
 
-        if (localizationData2 != null)
+        if (localizationData2 != null && loadedData2)
         {
             SerializedObject serializedObject = new SerializedObject(this);
             SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData2");
@@ -92,6 +94,7 @@ public class LocalizedTextEditor : EditorWindow {
     private void CreateNewData()
     {
         localizationData = new LocalizationData();
+        loadedData1 = true;
     }
 
     private void SaveLocaleData()
@@ -114,8 +117,7 @@ public class LocalizedTextEditor : EditorWindow {
             string dataAsJson = File.ReadAllText(filePath);
 
             localizationData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
-            //Debug.Log(localizationData);
-            //Debug.Log(localizationData2);
+            loadedData1 = true;
         }
     }
 
@@ -126,6 +128,7 @@ public class LocalizedTextEditor : EditorWindow {
         {
             string dataAsJson = File.ReadAllText(filePath);
             localizationData2 = JsonUtility.FromJson<LocalizationData>(dataAsJson);
+            loadedData2 = true;
         }
     }
 
@@ -141,7 +144,6 @@ public class LocalizedTextEditor : EditorWindow {
         if (resize)
         {
             currentScrollViewWidth = Event.current.mousePosition.x;
-            cursorChangeRect.Set(currentScrollViewWidth, cursorChangeRect.y, cursorChangeRect.width, cursorChangeRect.height);
         }
         if (Event.current.type == EventType.MouseUp)
         {

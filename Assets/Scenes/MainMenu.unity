@@ -470,7 +470,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  key: 
+  key: start_button
 --- !u!1 &93851410
 GameObject:
   m_ObjectHideFlags: 0
@@ -591,6 +591,7 @@ GameObject:
   m_Component:
   - component: {fileID: 133303983}
   - component: {fileID: 133303985}
+  - component: {fileID: 133303986}
   - component: {fileID: 133303984}
   m_Layer: 5
   m_Name: Text
@@ -737,6 +738,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 133303982}
+--- !u!114 &133303986
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 133303982}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: quit_game
 --- !u!1 &142159912
 GameObject:
   m_ObjectHideFlags: 0
@@ -1359,6 +1372,7 @@ GameObject:
   m_Component:
   - component: {fileID: 958919650}
   - component: {fileID: 958919652}
+  - component: {fileID: 958919653}
   - component: {fileID: 958919651}
   m_Layer: 5
   m_Name: Text
@@ -1503,6 +1517,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 958919649}
+--- !u!114 &958919653
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 958919649}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: change_lang
 --- !u!1 &1375009107
 GameObject:
   m_ObjectHideFlags: 0
@@ -1512,6 +1538,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1375009108}
   - component: {fileID: 1375009110}
+  - component: {fileID: 1375009111}
   - component: {fileID: 1375009109}
   m_Layer: 5
   m_Name: Text
@@ -1656,6 +1683,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1375009107}
+--- !u!114 &1375009111
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1375009107}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: settings_button
 --- !u!1 &1472901296
 GameObject:
   m_ObjectHideFlags: 0
