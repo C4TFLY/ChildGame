@@ -7,8 +7,9 @@ using System.IO;
 public class LocalizedTextEditor : EditorWindow {
 
     public LocalizationData localizationData;
+    public LocalizationData localizationData2;
 
-    private Vector2 scrollPos = Vector2.zero;
+    private Vector2 scrollPos, scrollPos2 = Vector2.zero;
     private float currentScrollViewWidth, currentScrollViewHeight;
     private Rect cursorChangeRect;
     private bool resize = false;
@@ -31,15 +32,18 @@ public class LocalizedTextEditor : EditorWindow {
     {
         GUILayout.BeginHorizontal();
 
-        scrollPos = GUILayout.BeginScrollView(scrollPos, GUILayout.Height(currentScrollViewHeight), GUILayout.Width(currentScrollViewWidth));
-        GUILayout.EndScrollView();
+#region Left side
+
+        scrollPos = GUILayout.BeginScrollView(scrollPos, GUILayout.Height(position.height), GUILayout.Width(currentScrollViewWidth));
+
+        
 
         if (localizationData != null)
-        {
-
-            SerializedObject serializedObject = new SerializedObject(this);
-            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");
-            EditorGUILayout.PropertyField(serializedProperty, true);
+        {asdasdasd
+            SerializedObject serializedObject = new SerializedObject(this);                                 //Something is up with
+            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");      //these two fuckers
+            if (serializedProperty != null)
+                EditorGUILayout.PropertyField(serializedProperty, true);
 
             serializedObject.ApplyModifiedProperties();
 
@@ -57,13 +61,29 @@ public class LocalizedTextEditor : EditorWindow {
             CreateNewData();
         }
 
+        GUILayout.EndScrollView();
+
+#endregion
+
         ResizeScrollView();
         GUILayout.FlexibleSpace();
 
-        if(GUILayout.Button("Load comparison data"))
+        scrollPos2 = GUILayout.BeginScrollView(scrollPos2, GUILayout.Height(position.height), GUILayout.Width(position.width - currentScrollViewWidth));
+
+        if (localizationData2 != null)
+        {
+            SerializedObject serializedObject = new SerializedObject(this);
+            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData2");
+            if (serializedProperty != null)
+                EditorGUILayout.PropertyField(serializedProperty, true);
+        }
+
+        if (GUILayout.Button("Load comparison data"))
         {
             CompareData();
         }
+
+        GUILayout.EndScrollView();
 
         GUILayout.EndHorizontal();
         Repaint();
@@ -94,12 +114,19 @@ public class LocalizedTextEditor : EditorWindow {
             string dataAsJson = File.ReadAllText(filePath);
 
             localizationData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
+            //Debug.Log(localizationData);
+            //Debug.Log(localizationData2);
         }
     }
 
     private void CompareData()
     {
-        GetWindow(typeof(DataComparison)).Show();
+        string filePath = EditorUtility.OpenFilePanel("Select localization data file", Application.streamingAssetsPath, "json");
+        if (!string.IsNullOrEmpty(filePath))
+        {
+            string dataAsJson = File.ReadAllText(filePath);
+            localizationData2 = JsonUtility.FromJson<LocalizationData>(dataAsJson);
+        }
     }
 
     private void ResizeScrollView()
@@ -119,27 +146,6 @@ public class LocalizedTextEditor : EditorWindow {
         if (Event.current.type == EventType.MouseUp)
         {
             resize = false;
-        }
-    }
-}
-
-public class DataComparison : EditorWindow
-{
-    public LocalizationData localizationData;
-
-    private void OnGUI()
-    {
-        if (localizationData != null)
-        {
-            SerializedObject serializedObject = new SerializedObject(this);
-            SerializedProperty serializedProperty = serializedObject.FindProperty("localizationData");
-            EditorGUILayout.PropertyField(serializedProperty, true);
-        }
-        if (GUILayout.Button("Load data"))
-        {
-            string filePath = EditorUtility.OpenFilePanel("Select localization data file", Application.streamingAssetsPath, "json");
-            string dataAsJson = File.ReadAllText(filePath);
-            localizationData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
         }
     }
 }
