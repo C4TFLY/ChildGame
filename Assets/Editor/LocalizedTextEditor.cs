@@ -10,7 +10,7 @@ public class LocalizedTextEditor : EditorWindow {
     public LocalizationData localizationData2;
 
     private Vector2 scrollPos, scrollPos2 = Vector2.zero;
-    private float currentScrollViewWidth, currentScrollViewHeight;
+    private float currentScrollViewWidth;
     private Rect cursorChangeRect;
     private bool resize = false;
     private bool loadedData1, loadedData2 = false;
@@ -25,7 +25,6 @@ public class LocalizedTextEditor : EditorWindow {
     {
         position = new Rect(200, 200, 400, 300);
         currentScrollViewWidth = position.width / 2;
-        currentScrollViewHeight = position.height / 2;
         cursorChangeRect = new Rect(position.width / 2, 0, 5f, position.height);
     }
 

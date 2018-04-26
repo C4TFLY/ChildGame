@@ -12,11 +12,9 @@ public class LocalizationManager : MonoBehaviour {
     [Header("Error handling")]
     public TextMeshProUGUI errorText;
     [TextArea] public string localeNotFoundError;
-    [TextArea] public string otherError;
 
     private Dictionary<string, string> localizedText;
     private bool isReady = false;
-    private string missingTextString = "Localized text not found.";
 	
 	void Awake ()
     {
@@ -38,8 +36,11 @@ public class LocalizationManager : MonoBehaviour {
         localizedText = new Dictionary<string, string>();
         string fileName = lmm.languages[lmm.selectedLanguageIndex].localeFile;
         string filePath = Path.Combine(Application.streamingAssetsPath, fileName);
+
+        Debug.Log($"Trying to load {lmm.languages[lmm.selectedLanguageIndex]} at {filePath}");
+
         if (File.Exists(filePath))
-        {
+        { 
             string dataAsJson = File.ReadAllText(filePath);
             LocalizationData loadedData = JsonUtility.FromJson<LocalizationData>(dataAsJson);
 
@@ -53,7 +54,7 @@ public class LocalizationManager : MonoBehaviour {
         }
         else
         {
-            Debug.LogError($"Cannot find localization file '{fileName}' at '{filePath}'.");
+            Debug.LogError($"Cannot find localization file '{fileName}' at '{filePath}'. Error code 01{lmm.selectedLanguageIndex}");
             errorText.text = localeNotFoundError + lmm.selectedLanguageIndex;
         }
 
@@ -62,13 +63,15 @@ public class LocalizationManager : MonoBehaviour {
 
     public string GetLocalizedValue(string key)
     {
-        string result = missingTextString;
-
         if (localizedText.ContainsKey(key))
         {
-            result = localizedText[key];
+            return localizedText[key];
         }
-        return result;
+        else
+        {
+            Debug.LogError($"Could not find localization key '{key}'.");
+        }
+        return "";
     }
 
     public bool IsReady()

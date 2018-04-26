@@ -19,11 +19,6 @@ public class LanguageMenuManager : MonoBehaviour {
         languageNameContainer.text = languages[0].language;
     }
 
-    private void Update()
-    {
-        print(languageNameContainer.GetComponent<RectTransform>().position);
-    }
-
     public void NextButton()
     {
         if (selectedLanguageIndex == languages.Length - 1)
