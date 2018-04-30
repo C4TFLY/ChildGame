@@ -10,8 +10,10 @@ public class SoundManager : MonoBehaviour {
 
     public AudioMixer mixer;
     public float masterVolume, musicVolume, sfxVolume, uiVolume;
+    public bool audioMuted = false;
 
     private GameObject latestUpdated;
+    private AudioMixerSnapshot paused, unpaused;
 
 	void Awake () {
 		if (instance == null)
@@ -23,7 +25,10 @@ public class SoundManager : MonoBehaviour {
             Destroy(gameObject);
         }
         DontDestroyOnLoad(gameObject);
-	}
+
+        paused = mixer.FindSnapshot("Muted");
+        unpaused = mixer.FindSnapshot("Unmuted");
+    }
 
     public void SetMasterVolume(float value)
     {
@@ -80,9 +85,23 @@ public class SoundManager : MonoBehaviour {
         label.text = roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
     }
 
-    public void ToggleSound()
+    public void ToggleSound(bool muteSound)
     {
-        mixer.ClearFloat
+        audioMuted = muteSound;
+        switch (muteSound)
+        {
+            case (false):
+                unpaused.TransitionTo(0f);
+                break;
+            case (true):
+                paused.TransitionTo(0f);
+                break;
+        }
+    }
+
+    public void AudioSetup()
+    {
+
     }
 
     private float Round(float value, int digits)

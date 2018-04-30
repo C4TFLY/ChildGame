@@ -7,8 +7,6 @@ using UnityEngine.UI;
 
 public class MainMenuManager : MonoBehaviour
 {
-    public Slider masterVolumeSlider;
-
     public void QuitGame()
     {
         Debug.Log("Quitting application.");

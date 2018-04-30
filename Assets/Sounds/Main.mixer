@@ -71,7 +71,7 @@ AudioMixerSnapshotController:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
-  m_Name: Playing
+  m_Name: Unmuted
   m_AudioMixer: {fileID: 24100000}
   m_SnapshotID: 8a440a9667b8f1b41806627298ea9027
   m_FloatValues:
