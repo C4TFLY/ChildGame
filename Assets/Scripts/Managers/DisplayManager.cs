@@ -33,10 +33,16 @@ public class DisplayManager : MonoBehaviour {
     public void SetResolution()
     {
         Screen.SetResolution(pendingWidth, pendingHeight, fullscreen, pendingRefreshRate);
+        Debug.Log($"Setting resolution to {pendingWidth} x {pendingHeight} @{pendingRefreshRate}hz. Fullscreen = {fullscreen}.");
     }
 
     public void ApplyChanges()
     {
         SetResolution();
+    }
+
+    public void ToggleFullscreen(bool enableFullscreen)
+    {
+        fullscreen = enableFullscreen;
     }
 }

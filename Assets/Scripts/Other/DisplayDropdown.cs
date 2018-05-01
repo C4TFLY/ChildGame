@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using System.Linq;
+using System;
 
 public class DisplayDropdown : MonoBehaviour {
 
@@ -24,8 +25,6 @@ public class DisplayDropdown : MonoBehaviour {
             foreach (Resolution res in dm.resolutions)
             {
                 r.Add($"{res.width} x {res.height}");
-                widths.Add(res.width);
-                heights.Add(res.height);
             }
         }
         else
@@ -38,8 +37,17 @@ public class DisplayDropdown : MonoBehaviour {
             }
         }
 
-        IEnumerable<string> re = r;
-        r = re.Distinct().ToList();
+        r = r.Distinct().ToList();
+
+        if (listResolutions)
+        {
+            foreach (string res in r)
+            {
+                widths.Add(Int32.Parse(res.Split('x')[0].Trim(' ')));
+                heights.Add(Int32.Parse(res.Split('x')[1].Trim(' ')));
+            }
+        }
+
         dropdown.ClearOptions();
         dropdown.AddOptions(r);
 
@@ -55,4 +63,10 @@ public class DisplayDropdown : MonoBehaviour {
     {
         dm.pendingRefreshRate = refreshRate[value];
     }
+    
+    private List<int> RemoveDuplicates(List<int> list)
+    {
+        return list.Distinct().ToList();
+    }
+
 }
