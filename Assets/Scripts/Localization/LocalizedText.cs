@@ -12,6 +12,7 @@ public class LocalizedText : MonoBehaviour {
         TextMeshProUGUI text = GetComponent<TextMeshProUGUI>();
         if (LocalizationManager.instance)
         {
+            Destroy(GameObject.Find("LoadChecker"));
             Debug.Log($"Applying localized value for {text.gameObject.name} with key '{key}'.");
             string val = LocalizationManager.instance.GetLocalizedValue(key);
             if (val != "")
@@ -23,6 +24,18 @@ public class LocalizedText : MonoBehaviour {
         {
             Debug.LogError("No LocalizationManager instance exists! Did the game start in the right scene?");
             Debug.Log("Scene loaded: " + UnityEngine.SceneManagement.SceneManager.GetActiveScene().name);
+
+            if (!GameObject.Find("LoadChecker"))
+            {
+                GameObject go = new GameObject("LoadChecker", typeof(ReloadChecker));
+                DontDestroyOnLoad(go);
+                if (!ReloadChecker.reloadedGame)
+                {
+                    Debug.Log("Attempting to reload game into scene 'LanguageSelection'");
+                    UnityEngine.SceneManagement.SceneManager.LoadScene("LanguageSelection");
+                    ReloadChecker.reloadedGame = true;
+                }
+            }
         }
 	}
 }

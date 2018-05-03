@@ -82,7 +82,7 @@ public class SoundManager : MonoBehaviour {
         float roundedVal = Round(musicVolume, 2);
         string roundedStr = roundedVal.ToString().Replace(",", ".");
 
-        label.text = roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
+        label.text = asd(musicVolume);
     }
 
     public void ToggleSound(bool muteSound)
@@ -99,15 +99,18 @@ public class SoundManager : MonoBehaviour {
         }
     }
 
-    public void AudioSetup()
-    {
-
-    }
-
     private float Round(float value, int digits)
     {
         float mult = Mathf.Pow(10.0f, digits);
         return Mathf.Round(value * mult) / mult;
     }
 
+
+    private string asd(float val)
+    {
+        //string 
+        return Round((val + 80) / 80, 2).ToString("0.00").Replace(",", ".");
+
+         //roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
+    }
 }
