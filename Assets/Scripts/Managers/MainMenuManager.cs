@@ -27,6 +27,7 @@ public class MainMenuManager : MonoBehaviour
 
     public void ChangeLanguage()
     {
+        Destroy(DisplayManager.instance.gameObject);
         Debug.Log("Going back to language selection.");
         SceneManager.LoadScene(0);
         Destroy(LocalizationManager.instance.gameObject);

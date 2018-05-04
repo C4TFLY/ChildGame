@@ -1,0 +1,3 @@
+01(x): Localization error. x represents locale index in scene LanguageSelection.
+
+02: LocalizationManager could not be created or found. Refer to logs.

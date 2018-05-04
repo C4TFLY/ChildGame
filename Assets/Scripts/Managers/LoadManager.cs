@@ -9,6 +9,7 @@ public class LoadManager : MonoBehaviour {
 
     public Slider progressSlider;
     public TextMeshProUGUI progressText;
+    public GameObject loadingText;
 
 	public void LoadLevel(int sceneIndex)
     {
@@ -19,6 +20,7 @@ public class LoadManager : MonoBehaviour {
     private IEnumerator LoadAsynchronously (int sceneIndex)
     {
         float loadProgress = 0;
+        bool informedUser = false;
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         operation.allowSceneActivation = false;
 
@@ -37,16 +39,23 @@ public class LoadManager : MonoBehaviour {
             progressText.text = $"{loadProgress * 100}%";
 
 
-            if (operation.progress >= 0.9f)
+            if (operation.progress >= 0.9f && !informedUser)
             {
-                if (Input.GetKeyDown(KeyCode.Space))
-                {
-                    operation.allowSceneActivation = true;
-                }
+                UpdateLoadingText();
+                informedUser = true;
+            }
+            if (Input.GetKeyDown(KeyCode.Space))
+            {
+                operation.allowSceneActivation = true;
             }
 
             yield return null;
         }
+    }
+
+    private void UpdateLoadingText()
+    {
+        loadingText.GetComponent<LocalizedText>().UpdateText("loading_complete");
     }
 
 }
