@@ -56,33 +56,21 @@ public class SoundManager : MonoBehaviour {
 
     public void UpdateMasterLabel(TextMeshProUGUI label)
     {
-        float roundedVal = Round(masterVolume, 2);
-        string roundedStr = roundedVal.ToString().Replace(",", ".");
-
-        label.text = roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
+        label.text = UpdateVolumeLabel(masterVolume);
     }
     public void UpdateSFXLabel(TextMeshProUGUI label)
     {
-        float roundedVal = Round(sfxVolume, 2);
-        string roundedStr = roundedVal.ToString().Replace(",", ".");
-
-        label.text = roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
+        label.text = UpdateVolumeLabel(sfxVolume);
     }
 
     public void UpdateUILabel(TextMeshProUGUI label)
     {
-        float roundedVal = Round(uiVolume, 2);
-        string roundedStr = roundedVal.ToString().Replace(",", ".");
-
-        label.text = roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
+        label.text = UpdateVolumeLabel(uiVolume);
     }
 
     public void UpdateMusicLabel(TextMeshProUGUI label)
     {
-        float roundedVal = Round(musicVolume, 2);
-        string roundedStr = roundedVal.ToString().Replace(",", ".");
-
-        label.text = asd(musicVolume);
+        label.text = UpdateVolumeLabel(musicVolume);
     }
 
     public void ToggleSound(bool muteSound)
@@ -106,11 +94,8 @@ public class SoundManager : MonoBehaviour {
     }
 
 
-    private string asd(float val)
+    private string UpdateVolumeLabel(float val)
     {
-        //string 
         return Round((val + 80) / 80, 2).ToString("0.00").Replace(",", ".");
-
-         //roundedVal == 0 ? "0.00" : roundedVal == -80 ? "-80.00" : roundedStr;
     }
 }

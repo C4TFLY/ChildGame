@@ -18,6 +18,7 @@ public class LoadManager : MonoBehaviour {
 
     private IEnumerator LoadAsynchronously (int sceneIndex)
     {
+        float loadProgress = 0;
         AsyncOperation operation = SceneManager.LoadSceneAsync(sceneIndex);
         operation.allowSceneActivation = false;
 
@@ -25,12 +26,15 @@ public class LoadManager : MonoBehaviour {
 
         while (!operation.isDone)
         {
-            float loadProgress = Mathf.Clamp01(operation.progress / .9f);
+            float progClamped = Mathf.Clamp01(operation.progress / .9f);
+            if (loadProgress != progClamped)
+            {
+                loadProgress = progClamped;
+                Debug.Log("Loaded: " + loadProgress);
+            }
 
             progressSlider.value = loadProgress;
             progressText.text = $"{loadProgress * 100}%";
-
-            Debug.Log("Loaded: " + loadProgress);
 
 
             if (operation.progress >= 0.9f)
