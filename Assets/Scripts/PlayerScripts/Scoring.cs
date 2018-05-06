@@ -4,8 +4,7 @@ using UnityEngine;
 using UnityEngine.UI;
 
 public class Scoring : MonoBehaviour {
-
-    public GameObject gameOverText;
+    
     public int score;
 
     private static int playerScore = 0;
@@ -28,7 +27,6 @@ public class Scoring : MonoBehaviour {
         if (PlayerScore >= playerSize.winScore)
         {
             player.Won_Enter();
-            gameOverText.GetComponent<Text>().text = "You win!";
         }
     }
 
@@ -57,10 +55,6 @@ public class Scoring : MonoBehaviour {
             else
             {
                 player.Dead_Enter();
-                gameOverText.SetActive(true);
-                int difference = enemySize - playerSize.Size;
-                string x = difference > 1 ? "sizes" : "size";
-                gameOverText.GetComponent<Text>().text = $"You lost... You tried to eat a fish that was {difference} {x} bigger than you.";
             }
         }
     }

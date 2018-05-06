@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using TMPro;
 
 public enum PlayerState
 {
@@ -16,6 +17,7 @@ public class Player : MonoBehaviour {
 
     public static PlayerState state = PlayerState.ALIVE;
     public SpriteRenderer playerSprite;
+    public GameObject winText, loseText, replayPrompt;
 
     private PlayerMovement playerMovement;
     private Scoring scoring;
@@ -37,9 +39,6 @@ public class Player : MonoBehaviour {
                 break;
             case PlayerState.WON:
                 Won_Update();
-                break;
-            default:
-                Debug.LogError("Something went wrong regarding Player states.");
                 break;
         }
     }
@@ -69,11 +68,15 @@ public class Player : MonoBehaviour {
         state = PlayerState.DEAD;
         playerSprite.flipY = true;
         GetComponent<BoxCollider2D>().enabled = false;
+        loseText.SetActive(true);
+        StartCoroutine(GameManager.instance.DisplayObjectAfterDelay(replayPrompt));
     }
 
     public void Won_Enter()
     {
         state = PlayerState.WON;
+        winText.SetActive(true);
+        StartCoroutine(GameManager.instance.DisplayObjectAfterDelay(replayPrompt));
     }
     
     private void OnTriggerEnter2D(Collider2D collision)
