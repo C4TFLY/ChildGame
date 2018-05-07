@@ -1,8 +1,8 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 #if UNITY_EDITOR
 using System;
@@ -12,6 +12,7 @@ using System.Text.RegularExpressions;
 public class UIManager : MonoBehaviour {
 
     public TextMeshProUGUI fishEatenText;
+
     private static TextMeshProUGUI eText;
 
     private void Awake()
@@ -25,12 +26,22 @@ public class UIManager : MonoBehaviour {
         eText.text = Scoring.FishEaten.ToString();
     }
 
+    public void Replay()
+    {
+        SceneManager.LoadScene(SceneManager.GetActiveScene().name);
+        GameManager.instance.player.Alive_Enter();
+    }
+
+    public void ReturnToMenu()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+
 #if UNITY_EDITOR
     private string sizeInput = "1";
     private string scoreInput = "100";
     public PlayerSize playerSize;
     public Scoring scoring;
-    public ProgressBar progressBar;
 
     void OnGUI()
     {

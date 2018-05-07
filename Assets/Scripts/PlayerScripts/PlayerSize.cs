@@ -9,9 +9,9 @@ public class PlayerSize : MonoBehaviour {
     public int[] sizeThresholds;
     public float maxSizeScale = 3f;
 
-    public int Size { get { return playerSize; } }
+    public static int Size { get { return playerSize; } }
 
-    [SerializeField] private int playerSize = 1;
+    [SerializeField] private static int playerSize = 1;
     private float scaleIncrease;
     private float scaleYChange = 0.0f;
     private float scaleXChange = 0.0f;

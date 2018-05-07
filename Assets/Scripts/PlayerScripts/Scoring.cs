@@ -44,9 +44,9 @@ public class Scoring : MonoBehaviour {
                 fishEaten += 1;
                 ProgressBar.UpdateFiller(enemyVal);
                 UIManager.UpdateText();
-                if (playerSize.Size <= playerSize.sizeThresholds.Length)
+                if (PlayerSize.Size <= playerSize.sizeThresholds.Length)
                 {
-                    if (playerScore > playerSize.sizeThresholds[playerSize.Size - 1])
+                    if (playerScore > playerSize.sizeThresholds[PlayerSize.Size - 1])
                     {
                         playerSize.SizeIncrease(1);
                     }

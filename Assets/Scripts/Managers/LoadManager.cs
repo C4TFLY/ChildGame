@@ -36,7 +36,7 @@ public class LoadManager : MonoBehaviour {
             }
 
             progressSlider.value = loadProgress;
-            progressText.text = $"{loadProgress * 100}%";
+            progressText.text = $"{loadProgress * 100}";
 
 
             if (operation.progress >= 0.9f && !informedUser)

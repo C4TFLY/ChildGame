@@ -360,7 +360,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 182577493}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 736.7618, y: 321.5442, z: 20.5}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -422,8 +422,8 @@ MonoBehaviour:
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
   m_text: 
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 36fcb35761d161d47bbeef25aaf2cdd9, type: 2}
-  m_sharedMaterial: {fileID: 21416218632668118, guid: 36fcb35761d161d47bbeef25aaf2cdd9,
+  m_fontAsset: {fileID: 11400000, guid: 64f26321ffe59414cb7688c1a8e23f0f, type: 2}
+  m_sharedMaterial: {fileID: 21525697483484722, guid: 64f26321ffe59414cb7688c1a8e23f0f,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
@@ -717,9 +717,7 @@ MonoBehaviour:
       m_Calls: []
     m_TypeName: UnityEngine.UI.MaskableGraphic+CullStateChangedEvent, UnityEngine.UI,
       Version=1.0.0.0, Culture=neutral, PublicKeyToken=null
-  m_text: 'Svenska
-
-'
+  m_text: Svenska
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 36fcb35761d161d47bbeef25aaf2cdd9, type: 2}
   m_sharedMaterial: {fileID: 21416218632668118, guid: 36fcb35761d161d47bbeef25aaf2cdd9,
@@ -787,9 +785,9 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: -0.21009064}
   m_textInfo:
     textComponent: {fileID: 639258322}
-    characterCount: 8
+    characterCount: 7
     spriteCount: 0
-    spaceCount: 1
+    spaceCount: 0
     wordCount: 1
     linkCount: 0
     lineCount: 1
