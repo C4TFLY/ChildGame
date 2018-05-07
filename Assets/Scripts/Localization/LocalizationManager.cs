@@ -74,6 +74,15 @@ public class LocalizationManager : MonoBehaviour {
         return "";
     }
 
+    public bool ValueExistsForKey(string key)
+    {
+        if (localizedText.ContainsKey(key))
+        {
+            return true;
+        }
+        return false;
+    }
+
     public bool IsReady()
     {
         return isReady;

@@ -15,12 +15,23 @@ public enum PlayerState
 [RequireComponent(typeof(PlayerSize))]
 public class Player : MonoBehaviour {
 
-    public static PlayerState state = PlayerState.ALIVE;
+    public static Player instance;
+
+    public PlayerSize playerSize;
+
+
+    public PlayerState state = PlayerState.ALIVE;
     public SpriteRenderer playerSprite;
     public GameObject winText, loseText, replayPrompt;
 
     private PlayerMovement playerMovement;
     private Scoring scoring;
+
+    private void Awake()
+    {
+        instance = this;
+        playerSize = GetComponent<PlayerSize>();
+    }
 
     private void Start()
     {

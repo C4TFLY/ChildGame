@@ -32,7 +32,7 @@ public class Scoring : MonoBehaviour {
 
     public void Score(Collider2D collision)
     {
-        if (collision.gameObject.CompareTag("EnemyFish") && Player.state == PlayerState.ALIVE)
+        if (collision.gameObject.CompareTag("EnemyFish") && Player.instance.state == PlayerState.ALIVE)
         {
             GameObject enemy = collision.gameObject;
             int enemySize = enemy.GetComponent<EnemyFish>().properties.size;
@@ -44,9 +44,9 @@ public class Scoring : MonoBehaviour {
                 fishEaten += 1;
                 ProgressBar.UpdateFiller(enemyVal);
                 UIManager.UpdateText();
-                if (PlayerSize.Size <= playerSize.sizeThresholds.Length)
+                if (Player.instance.playerSize.Size <= playerSize.sizeThresholds.Length)
                 {
-                    if (playerScore > playerSize.sizeThresholds[PlayerSize.Size - 1])
+                    if (playerScore > playerSize.sizeThresholds[Player.instance.playerSize.Size - 1])
                     {
                         playerSize.SizeIncrease(1);
                     }
