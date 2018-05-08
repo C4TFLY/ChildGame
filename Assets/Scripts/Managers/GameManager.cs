@@ -24,7 +24,13 @@ public class GameManager : MonoBehaviour {
     }
     void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
-        player = GameObject.FindGameObjectWithTag("Player").GetComponent<Player>();
+        GameObject p = GameObject.FindGameObjectWithTag("Player");
+
+        if (p)
+        {
+            player = p.GetComponent<Player>();
+        }
+
     }
 
     public IEnumerator DisplayObjectAfterDelay(GameObject objectToDisplay, float delay = 3f)

@@ -17,26 +17,25 @@ public class Player : MonoBehaviour {
 
     public static Player instance;
 
-    public PlayerSize playerSize;
+    [HideInInspector()]public PlayerSize playerSize;
+    [HideInInspector()] public Scoring scoring; 
 
-
-    public PlayerState state = PlayerState.ALIVE;
+    [HideInInspector()]public PlayerState state = PlayerState.ALIVE;
     public SpriteRenderer playerSprite;
     public GameObject winText, loseText, replayPrompt;
 
     private PlayerMovement playerMovement;
-    private Scoring scoring;
 
     private void Awake()
     {
         instance = this;
         playerSize = GetComponent<PlayerSize>();
+        scoring = GetComponent<Scoring>();
     }
 
     private void Start()
     {
         playerMovement = GetComponent<PlayerMovement>();
-        scoring = GetComponent<Scoring>();
     }
 
     void Update () {

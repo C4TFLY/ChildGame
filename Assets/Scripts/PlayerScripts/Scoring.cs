@@ -7,10 +7,10 @@ public class Scoring : MonoBehaviour {
     
     public int score;
 
-    private static int playerScore = 0;
-    private static int fishEaten = 0;
-    public static int PlayerScore { get { return playerScore; } }
-    public static int FishEaten { get { return fishEaten; } }
+    private int playerScore = 0;
+    private int fishEaten = 0;
+    public int PlayerScore { get { return playerScore; } }
+    public int FishEaten { get { return fishEaten; } }
 
     private PlayerSize playerSize;
     private Player player;

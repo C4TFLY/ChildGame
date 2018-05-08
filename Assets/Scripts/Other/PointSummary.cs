@@ -32,10 +32,10 @@ public class PointSummary : MonoBehaviour {
     {
         TextMeshProUGUI summary = GetComponent<TextMeshProUGUI>();
 
-        string part1 = p1_extends ? (Scoring.PlayerScore > 1 ? p_1_1 : p_1_2) : p_1_1;
-        string part2 = p2_extends ? (Scoring.FishEaten > 1 ? p_2_1 : p_2_2) : p_2_1;
+        string part1 = p1_extends ? (Player.instance.scoring.PlayerScore > 1 ? p_1_1 : p_1_2) : p_1_1;
+        string part2 = p2_extends ? (Player.instance.scoring.FishEaten > 1 ? p_2_1 : p_2_2) : p_2_1;
 
-        summary.text = $"{p_0} {Scoring.PlayerScore} {part1} {Scoring.FishEaten} {part2}";
+        summary.text = $"{p_0} {Player.instance.scoring.PlayerScore} {part1} {Player.instance.scoring.FishEaten} {part2}";
     }
 
 }

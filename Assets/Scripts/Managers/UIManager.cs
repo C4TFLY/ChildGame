@@ -23,7 +23,7 @@ public class UIManager : MonoBehaviour {
 
     public static void UpdateText()
     {
-        eText.text = Scoring.FishEaten.ToString();
+        eText.text = Player.instance.scoring.FishEaten.ToString();
     }
 
     public void Replay()
