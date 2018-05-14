@@ -5,9 +5,10 @@ using UnityEngine;
 [System.Serializable]
 public class Fish {
 
-    public Sprite image;
+    public GameObject prefab;
     public int size;
     public float moveSpeed;
     public int value;
+    public float spawnChance;
 
 }

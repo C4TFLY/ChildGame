@@ -773,7 +773,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 456045380}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -27.3, y: 0, z: 0}
+  m_LocalPosition: {x: -31.57, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -1447,30 +1447,34 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishes:
-  - image: {fileID: 21300000, guid: b40e00d87565d234d9c669c893d210e2, type: 3}
+  - prefab: {fileID: 1901342542467734, guid: 71508fcfaa5a7994ea169cb988750291, type: 2}
     size: 0
     moveSpeed: 20
     value: 10
-  - image: {fileID: 21300000, guid: a32850bf33d124a4fb40418747f31776, type: 3}
+    spawnChance: 40
+  - prefab: {fileID: 1337112807663690, guid: cb52b852b1b4d4a4ebcf95642cef0a7e, type: 2}
     size: 1
     moveSpeed: 15
     value: 20
-  - image: {fileID: 21300000, guid: da6a6318a02cf824ea252b326a25e019, type: 3}
+    spawnChance: 25
+  - prefab: {fileID: 1894306724295054, guid: b8861638cd687484488284bea2419c10, type: 2}
     size: 2
     moveSpeed: 25
-    value: 25
-  - image: {fileID: 21300000, guid: 65e20257feae5cf49bcdc9271b485ca4, type: 3}
+    value: 5
+    spawnChance: 15
+  - prefab: {fileID: 1938364809187996, guid: 6060a7a736b22e242ac1ec3174e22385, type: 2}
     size: 3
     moveSpeed: 10
     value: 30
-  - image: {fileID: 21300000, guid: d2659bb3d27e5384ba38c877d9c5ed05, type: 3}
-    size: 4
+    spawnChance: 5
+  - prefab: {fileID: 1813724612330336, guid: b71ec1c626252a1409132e763297c7b8, type: 2}
+    size: 10
     moveSpeed: 15
     value: 35
-  fishPrefab: {fileID: 1739733713905890, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
-  spawnChance: 250
+    spawnChance: 15
+  spawnChance: 1
   spawnDelay: 0.25
-  maxTime: 5
+  maxTimeToSpawn: 5
   destroyDelay: 5
 --- !u!4 &919753473
 Transform:
@@ -1479,7 +1483,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 919753471}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 22, y: 0, z: 0}
+  m_LocalPosition: {x: 30, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -2097,7 +2101,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 0}
+  m_Offset: {x: -0.19, y: -0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0, y: 0}
@@ -2108,7 +2112,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.9, y: 2.62}
+  m_Size: {x: 3.3, y: 1.95}
   m_EdgeRadius: 0
 --- !u!4 &1319274826
 Transform:
@@ -2117,8 +2121,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1319274824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.93, y: 0.09, z: 0}
-  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
+  m_LocalPosition: {x: -4.93, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 441121309}
   m_Father: {fileID: 0}
@@ -2188,7 +2192,7 @@ MonoBehaviour:
   smoothTime: 0.75
   winScore: 1000
   sizeThresholds: 64000000c80000002c01000090010000
-  maxSizeScale: 1.75
+  maxSizeScale: 2.2
   playerSize: 1
 --- !u!114 &1319274831
 MonoBehaviour:
@@ -2308,7 +2312,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.199951, y: 9.199966}
+  m_AnchoredPosition: {x: 19.199951, y: 9.199951}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1380685544
