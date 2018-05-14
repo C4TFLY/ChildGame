@@ -9,7 +9,7 @@ public class LoadManager : MonoBehaviour {
 
     public Slider progressSlider;
     public TextMeshProUGUI progressText;
-    public GameObject loadingText;
+    public TextMeshProUGUI loadingText;
 
 	public void LoadLevel(int sceneIndex)
     {
@@ -55,7 +55,9 @@ public class LoadManager : MonoBehaviour {
 
     private void UpdateLoadingText()
     {
-        loadingText.GetComponent<LocalizedText>().UpdateText("loading_complete");
+        LocalizationManager lm = LocalizationManager.instance;
+        string pressToContinue = lm.GetLocalizedValue("press_to_continue").Replace("*-*", lm.GetLocalizedValue("spacebar"));
+        loadingText.text = pressToContinue;
     }
 
 }

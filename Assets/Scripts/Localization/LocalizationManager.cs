@@ -63,6 +63,7 @@ public class LocalizationManager : MonoBehaviour {
 
     public string GetLocalizedValue(string key)
     {
+        Debug.Log($"Fetching localized value for key '{key}'.");
         if (localizedText.ContainsKey(key))
         {
             return localizedText[key];
@@ -71,7 +72,7 @@ public class LocalizationManager : MonoBehaviour {
         {
             Debug.LogError($"Could not find localization key '{key}'.");
         }
-        return "";
+        return "Missing value.";
     }
 
     public bool ValueExistsForKey(string key)
@@ -87,4 +88,5 @@ public class LocalizationManager : MonoBehaviour {
     {
         return isReady;
     }
+
 }

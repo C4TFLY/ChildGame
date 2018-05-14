@@ -196,6 +196,7 @@ GameObject:
   - component: {fileID: 91499111}
   - component: {fileID: 91499113}
   - component: {fileID: 91499112}
+  - component: {fileID: 91499114}
   m_Layer: 5
   m_Name: ReplayQuestion
   m_TagString: Untagged
@@ -340,6 +341,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 91499110}
+--- !u!114 &91499114
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 91499110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: play_again_question
 --- !u!1 &105749150
 GameObject:
   m_ObjectHideFlags: 0
@@ -393,6 +406,7 @@ GameObject:
   - component: {fileID: 138498512}
   - component: {fileID: 138498514}
   - component: {fileID: 138498513}
+  - component: {fileID: 138498515}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -537,6 +551,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 138498511}
+--- !u!114 &138498515
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 138498511}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: yes_1
 --- !u!1 &189095590
 GameObject:
   m_ObjectHideFlags: 0
@@ -649,7 +675,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 441121308}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -0.27, y: 0.04, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1319274826}
@@ -689,7 +715,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 2359d7edfda2ac44994b5e5c44ca2744, type: 3}
+  m_Sprite: {fileID: 21300000, guid: c0c2f034c3b83344d8b5203fad4f28a6, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -971,6 +997,7 @@ GameObject:
   - component: {fileID: 708354533}
   - component: {fileID: 708354535}
   - component: {fileID: 708354534}
+  - component: {fileID: 708354536}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -1115,6 +1142,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 708354532}
+--- !u!114 &708354536
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 708354532}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: no_1
 --- !u!1 &716926021
 GameObject:
   m_ObjectHideFlags: 0
@@ -1408,14 +1447,26 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fishes:
-  - image: {fileID: 21300000, guid: 2359d7edfda2ac44994b5e5c44ca2744, type: 3}
+  - image: {fileID: 21300000, guid: b40e00d87565d234d9c669c893d210e2, type: 3}
     size: 0
     moveSpeed: 20
-    value: 25
-  - image: {fileID: 21300000, guid: a257a5f4ceec84046b278c819f219d8e, type: 3}
+    value: 10
+  - image: {fileID: 21300000, guid: a32850bf33d124a4fb40418747f31776, type: 3}
     size: 1
     moveSpeed: 15
+    value: 20
+  - image: {fileID: 21300000, guid: da6a6318a02cf824ea252b326a25e019, type: 3}
+    size: 2
+    moveSpeed: 25
     value: 25
+  - image: {fileID: 21300000, guid: 65e20257feae5cf49bcdc9271b485ca4, type: 3}
+    size: 3
+    moveSpeed: 10
+    value: 30
+  - image: {fileID: 21300000, guid: d2659bb3d27e5384ba38c877d9c5ed05, type: 3}
+    size: 4
+    moveSpeed: 15
+    value: 35
   fishPrefab: {fileID: 1739733713905890, guid: dc9e4797074fa6b4b82a19647a477b44, type: 2}
   spawnChance: 250
   spawnDelay: 0.25
@@ -1444,6 +1495,7 @@ GameObject:
   - component: {fileID: 1016889679}
   - component: {fileID: 1016889681}
   - component: {fileID: 1016889680}
+  - component: {fileID: 1016889682}
   m_Layer: 5
   m_Name: LoseText
   m_TagString: Untagged
@@ -1588,6 +1640,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1016889678}
+--- !u!114 &1016889682
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1016889678}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: you_lose
 --- !u!1 &1048548907
 GameObject:
   m_ObjectHideFlags: 0
@@ -2036,15 +2100,15 @@ BoxCollider2D:
   m_Offset: {x: 0, y: 0}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 1.4, y: 0.99}
-    newSize: {x: 1.4, y: 0.99}
-    adaptiveTilingThreshold: 0.5
+    pivot: {x: 0, y: 0}
+    oldSize: {x: 0, y: 0}
+    newSize: {x: 0, y: 0}
+    adaptiveTilingThreshold: 0
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 1.4, y: 0.99}
+  m_Size: {x: 3.9, y: 2.62}
   m_EdgeRadius: 0
 --- !u!4 &1319274826
 Transform:
@@ -2053,8 +2117,8 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1319274824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.93, y: 0.09, z: 0}
+  m_LocalScale: {x: 0.8, y: 0.8, z: 1}
   m_Children:
   - {fileID: 441121309}
   m_Father: {fileID: 0}
@@ -2103,6 +2167,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22fb365dbe212144ab2795f1e85fc9d9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerSize: {fileID: 0}
+  scoring: {fileID: 0}
+  state: 0
   playerSprite: {fileID: 441121310}
   winText: {fileID: 1994095896}
   loseText: {fileID: 189095590}
@@ -2120,8 +2187,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   smoothTime: 0.75
   winScore: 1000
-  sizeThresholds: 64000000c80000002c01000090010000f4010000
-  maxSizeScale: 3
+  sizeThresholds: 64000000c80000002c01000090010000
+  maxSizeScale: 1.75
+  playerSize: 1
 --- !u!114 &1319274831
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2240,7 +2308,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 19.199951, y: 9.199951}
+  m_AnchoredPosition: {x: 19.199951, y: 9.199966}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &1380685544
@@ -2635,6 +2703,7 @@ GameObject:
   - component: {fileID: 1796374238}
   - component: {fileID: 1796374240}
   - component: {fileID: 1796374239}
+  - component: {fileID: 1796374241}
   m_Layer: 5
   m_Name: SubText
   m_TagString: Untagged
@@ -2779,6 +2848,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1796374237}
+--- !u!114 &1796374241
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1796374237}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: tried_to_eat_bigger
 --- !u!1 &1894751123
 GameObject:
   m_ObjectHideFlags: 0
@@ -2955,6 +3036,7 @@ GameObject:
   - component: {fileID: 1994095897}
   - component: {fileID: 1994095899}
   - component: {fileID: 1994095898}
+  - component: {fileID: 1994095900}
   m_Layer: 5
   m_Name: WinText
   m_TagString: Untagged
@@ -3099,6 +3181,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1994095896}
+--- !u!114 &1994095900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1994095896}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: you_win
 --- !u!1 &2036974563
 GameObject:
   m_ObjectHideFlags: 0

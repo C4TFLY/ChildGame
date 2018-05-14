@@ -8970,11 +8970,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -10464,6 +10464,7 @@ GameObject:
   - component: {fileID: 1794736316}
   - component: {fileID: 1794736318}
   - component: {fileID: 1794736317}
+  - component: {fileID: 1794736319}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -10608,6 +10609,18 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1794736315}
+--- !u!114 &1794736319
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1794736315}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d2346fbcb66ff174e8681a99feb53ca5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  key: are_you_sure
 --- !u!1 &1801005538
 GameObject:
   m_ObjectHideFlags: 0
@@ -11546,7 +11559,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 25, y: 42}
+  m_AnchoredPosition: {x: 25, y: 44.4}
   m_SizeDelta: {x: 200, y: 50}
   m_Pivot: {x: 0, y: 0}
 --- !u!114 &1981197239
@@ -11578,8 +11591,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4283152383
+  m_fontColor: {r: 1, g: 0.7176471, b: 0.29411766, a: 1}
   m_enableVertexGradient: 0
   m_fontColorGradient:
     topLeft: {r: 1, g: 1, b: 1, a: 1}
@@ -11603,7 +11616,7 @@ MonoBehaviour:
   m_fontSizeMin: 18
   m_fontSizeMax: 72
   m_fontStyle: 0
-  m_textAlignment: 513
+  m_textAlignment: 1025
   m_isAlignmentEnumConverted: 1
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -11644,11 +11657,11 @@ MonoBehaviour:
     lineCount: 1
     pageCount: 1
     materialCount: 1
-  m_havePropertiesChanged: 0
+  m_havePropertiesChanged: 1
   m_isUsingLegacyAnimationComponent: 0
   m_isVolumetricText: 0
   m_spriteAnimator: {fileID: 0}
-  m_isInputParsingRequired: 0
+  m_isInputParsingRequired: 1
   m_inputSource: 0
   m_hasFontAssetChanged: 0
   m_subTextObjects:
@@ -11734,7 +11747,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   progressSlider: {fileID: 1801005540}
   progressText: {fileID: 1508592894}
-  loadingText: {fileID: 1981197237}
+  loadingText: {fileID: 1981197239}
 --- !u!1 &1993801592
 GameObject:
   m_ObjectHideFlags: 0
