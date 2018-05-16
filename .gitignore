@@ -37,3 +37,6 @@ sysinfo.txt
 # Builds
 *.apk
 *.unitypackage
+*.meta
+*.meta
+Assets/TextMesh Pro/Examples & Extras/Scenes.meta

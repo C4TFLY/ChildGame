@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
+# Visual Studio 2017
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildGame", "ChildGame.csproj", "{461CFB96-515F-993A-BB4D-257686EE119F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChildGame.Editor", "ChildGame.Editor.csproj", "{140B416A-0EB1-6BBE-20AE-DDC7BE5C2A57}"
