@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//Klass för fiender
+
 [System.Serializable]
 public class Fish {
 
